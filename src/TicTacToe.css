@@ -1,0 +1,96 @@
+:root {
+  --O-color: #FF9A00;  
+  --X-color: #7B1FA2;  
+  --E-color: #FFD54F;  
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  font-family: sans-serif;
+  height: 100vh;
+  background: linear-gradient(45deg, #FF9A00, #FFD54F);
+}
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.board {
+  display: grid; /* O grid no CSS é um sistema de layout que organiza os elementos em linhas e colunas, parecido com uma tabela, mas muito mais flexível. */ /* Define layout em grid */
+  grid-template-columns: repeat(3, 240px); /* 3 colunas */
+  grid-template-rows: repeat(3, 200px); /* 3 linhas */
+  gap: 1rem; /* Espacamento */
+}
+
+.board.game-over {
+  opacity: 0.8;
+}
+
+.cell {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px; /*borda arredondada*/
+  font-size: 3rem; /*fonte maior*/
+  font-weight: bold; /*negrito*/
+  color: #00000066;
+
+  cursor: pointer; /* pra mudar o cursor */
+}
+
+.cell.O, .cell.X, .game-over .cell {
+  cursor: not-allowed; /*cursor de proibido*/
+}
+
+.cell.O {
+   background-color: var(--O-color);
+  color: #fff;
+}
+
+.cell.X {
+    background-color: var(--X-color);
+  color: #fff;
+}
+
+footer {
+  text-align: center;
+}
+
+.winner-message {
+  margin: 2rem;
+}
+
+.winner-message span.O {
+  color: var(--O-color);
+}
+
+.winner-message span.X {
+  color: var(--X-color);
+}
+
+.winner-message span.E {
+  color: var(--E-color);
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 15px rgba(123, 31, 162, 0.3);
+  background-color: #7B1FA2;
+  color: white;
+  font-size: 1.2rem;
+}
